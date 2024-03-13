@@ -304,7 +304,13 @@ header .button_contact {
 }
 .about_us {
   color: #fff;
-  max-width: 640px;
+  max-width: 530px;
+  line-height: 240%;
+  font-family: "Montserrat";
+  margin-top: 20px;
+}
+.about_us strong {
+  color: #fff;
 }
 .section_b {
   background-image: url("../images/background-about-us.png");
@@ -449,4 +455,171 @@ header .button_contact {
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
+}
+.section_f {
+  background-color: #040507;
+  padding: 200px 0;
+}
+.section_f .brasil_map {
+  width: 100%;
+  max-width: 700px;
+}
+.section_f h1 {
+  font-size: 52px;
+  color: #fff;
+}
+.section_f p {
+  font-size: 16px;
+  color: #fff;
+  max-width: 393px;
+  line-height: 160%;
+  margin: 10px 0 0 0 !important;
+}
+.section_f a {
+  background-color: #9351e8;
+  color: #fff;
+  padding: 11px 30px;
+  border-radius: 1000px;
+  display: block;
+  text-decoration: underline;
+  max-width: fit-content;
+  margin-top: 40px;
+}
+.section_f .section_content img {
+  margin-bottom: 20px;
+}
+.map {
+  position: relative;
+  width: 50%;
+  max-width: 700px;
+}
+.section_f .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dot {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 1000px;
+  border: 1px solid #f8b14d;
+  top: 65%;
+  right: 24%;
+}
+.full_dot {
+  width: 10px;
+  height: 10px;
+  background-color: #f8b14d;
+  border-radius: 1000px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.dot2 {
+  top: 65%;
+  right: 30%;
+}
+.section_g {
+  background-color: #000;
+  padding: 150px 0;
+}
+.section_g .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main_content h1 {
+  font-size: 52px;
+  color: #fff;
+}
+.main_content h1 strong {
+  color: #9351e8;
+}
+.main_content p {
+  font-family: "Montserrat";
+  color: #c2c2c4;
+  text-align: center;
+  font-size: 20px;
+  max-width: 537px;
+  margin: 20px auto;
+  font-weight: 400;
+}
+.main_content_2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 50px;
+}
+.main_content_2 .text {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 8px;
+}
+.main_content_2 .text p {
+  text-align: left;
+  margin: 0 !important;
+}
+.text .title {
+  font-weight: 700;
+  font-size: 24px;
+  font-family: "Space Grotesk" !important;
+  text-align: left;
+}
+.cards_contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wpp_card,
+.email_card {
+  padding: 35px 90px;
+  background-color: #9251e858;
+  border: 1px solid #9351e8;
+}
+.footer1 {
+  background-color: #9351e8;
+  padding: 78px 0;
+}
+.footer1 h1 {
+  font-size: 24px;
+  font-family: "Space Grotesk" !important;
+  color: #fff;
+}
+.footer1 p {
+  max-width: 400px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 200%;
+  margin-top: 20px;
+}
+.footer2 {
+  padding: 24px 0;
+  background-color: #000;
+}
+.footer2 .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer2 p,
+.footer2 a {
+  color: #616065;
+}
+.footer3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: #000;
+  gap: 4px;
+  color: #616065;
+}
+.footer3 a {
+  color: #616065;
 }
