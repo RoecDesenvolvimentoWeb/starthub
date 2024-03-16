@@ -1,3 +1,6 @@
+window.addEventListener("load", function () {
+  window.scrollTo(0, 0);
+});
 document.addEventListener("DOMContentLoaded", function () {
   var logoAnimation = document.querySelector(".logo_animation");
   var logoBubble = document.querySelector(".logo_bubble");
@@ -156,4 +159,30 @@ function fadeInCards() {
       card.classList.add("fade-in");
     }, index * 500); // Atraso de 200ms entre cada imagem (ajustado para um intervalo menor)
   });
+}
+
+// SECTION B
+const animationDelay = 100; // 1 segundo
+const animationDuration = 2000; // 0.5 segundo
+
+window.addEventListener("scroll", function () {
+  const element = document.querySelector(".about_us_h1");
+  const positionFromTop = element.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+  const triggerPoint = 0.2 * screenHeight;
+
+  if (positionFromTop - screenHeight + triggerPoint <= 0) {
+    setTimeout(function () {
+      element.style.transitionDuration = `${animationDuration}ms`;
+      animateSlide(element, 0); // Animar para dentro
+    }, animationDelay);
+  } else {
+    element.style.transitionDuration = `${animationDuration}ms`;
+    animateSlide(element, -100); // Animar para fora
+  }
+});
+
+function animateSlide(element, offsetX) {
+  element.style.opacity = offsetX === 0 ? 1 : 0; // Se offsetX é 0, definir a opacidade como 1, caso contrário, definir como 0
+  element.style.transform = `translateX(${offsetX}%)`; // Usar offsetX para definir a posição
 }
