@@ -84,6 +84,13 @@ header .button_contact {
   color: #07080d;
   text-transform: uppercase;
 }
+.bubble {
+  position: absolute;
+  left: 0;
+}
+.bubble img {
+  width: 250px;
+}
 .section_a {
   background-color: #000;
   padding: 0 20px;
@@ -95,11 +102,11 @@ header .button_contact {
   justify-content: end;
 }
 .text_area {
-  width: fit-content;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: end;
-  margin-right: 120px;
+  margin-right: 40px;
 }
 .text_area .top_text {
   font-size: 16px;
@@ -107,7 +114,7 @@ header .button_contact {
   max-width: fit-content;
 }
 .text_area h1 {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 700;
   color: #fff;
   text-align: right;
@@ -622,4 +629,41 @@ header .button_contact {
 }
 .footer3 a {
   color: #616065;
+}
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.logo_animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+  opacity: 0;
+}
+
+.name_logo {
+  transition: opacity 1s ease;
+}
+
+.logo_bubble {
+  transition: transform 1s ease, width 1s ease;
 }
