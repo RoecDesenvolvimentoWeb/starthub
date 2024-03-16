@@ -225,6 +225,7 @@ header .button_contact {
 }
 .second_section {
   padding: 230px 0 170px 0;
+  opacity: 0;
 }
 .second_section h1 {
   font-weight: 700;
@@ -666,4 +667,12 @@ header .button_contact {
 
 .logo_bubble {
   transition: transform 1s ease, width 1s ease;
+}
+.card {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card.fade-in {
+  opacity: 1;
 }
