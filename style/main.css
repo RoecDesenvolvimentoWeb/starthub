@@ -325,7 +325,7 @@ header .button_contact {
   background-image: url("../images/background-about-us.png");
   background-position: center right;
   background-repeat: no-repeat;
-  background-size: cover;
+  transition: transform 0.2s ease-out; /* Adiciona uma transição suave */
 }
 .about_us_button {
   margin-top: 200px;
@@ -368,6 +368,10 @@ header .button_contact {
   align-items: center;
   gap: 16px;
   justify-content: center;
+}
+.galery_items img {
+  width: 100%;
+  max-width: 180px;
 }
 .section_d {
   background-image: url("../images/bgsolid.png");
