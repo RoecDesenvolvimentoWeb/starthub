@@ -269,7 +269,6 @@ sectionD.addEventListener("mousemove", function (event) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const animationDelayCustom = 500; // 1 segundo
   const animationDurationCustom = 500; // 0.5 segundo
   const screenHeightCustom = window.innerHeight;
   const triggerPointCustom = 0.1 * screenHeightCustom;
@@ -286,16 +285,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function handleScroll() {
     elements.forEach(function (element, index) {
-      if (isInViewport(element)) {
+      if (isInViewport(element) && !element.classList.contains("show")) {
         element.style.setProperty(
           "--animation-duration",
           `${animationDurationCustom / 1000}s`
         );
-        setTimeout(function () {
-          element.classList.add("show");
-        }, animationDelayCustom);
-      } else {
-        element.classList.remove("show");
+        element.classList.add("show");
+      }
+    });
+  }
+
+  handleScroll(); // Run once to initialize elements visibility
+
+  window.addEventListener("scroll", handleScroll);
+});
+
+// SECTION E
+document.addEventListener("DOMContentLoaded", function () {
+  const animationDurationCustom = 500; // 0.5 segundo
+  const screenHeightCustom = window.innerHeight;
+  const triggerPointCustom = 0.1 * screenHeightCustom;
+
+  const elements = document.querySelectorAll(".section_e .container > *");
+
+  function isInViewport(element) {
+    const bounding = element.getBoundingClientRect();
+    return (
+      bounding.top + triggerPointCustom <= screenHeightCustom &&
+      bounding.bottom >= triggerPointCustom
+    );
+  }
+
+  function handleScroll() {
+    elements.forEach(function (element, index) {
+      if (isInViewport(element) && !element.classList.contains("show")) {
+        element.style.setProperty(
+          "--animation-duration",
+          `${animationDurationCustom / 1000}s`
+        );
+        element.classList.add("show");
       }
     });
   }
@@ -306,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // MAP MAP MAP MAP MAP
-const animationDelayDots = 1000; // 1 segundo
+const animationDelayDots = 500; // 1 segundo
 const animationDurationDots = 500; // 0.5 segundo
 
 const dots = document.querySelectorAll(".dot");
@@ -328,52 +356,4 @@ window.addEventListener("scroll", function () {
       dot.style.opacity = 0; // Oculta o dot
     }
   });
-});
-
-// SECTION E
-document.addEventListener("DOMContentLoaded", function () {
-  let customAnimationDelay = 1000; // 1 segundo (valor inicial)
-  const customAnimationDuration = 1000; // 0.5 segundo
-  const customScreenHeight = window.innerHeight;
-  const customTriggerPoint = 0.1 * customScreenHeight;
-
-  const container = document.querySelector(".section_e .container");
-  const elements = container.querySelectorAll("*");
-
-  function isInViewport(element) {
-    const bounding = element.getBoundingClientRect();
-    return (
-      bounding.top + customTriggerPoint <= customScreenHeight &&
-      bounding.bottom >= customTriggerPoint
-    );
-  }
-
-  function handleScroll() {
-    if (isInViewport(container)) {
-      elements.forEach(function (element, index) {
-        element.style.transition = `opacity ${
-          customAnimationDuration / 1000
-        }s ease, transform ${customAnimationDuration / 1000}s ease`;
-        setTimeout(function () {
-          element.style.opacity = "1";
-          element.style.transform = "translateY(0)";
-        }, customAnimationDelay);
-      });
-    } else {
-      elements.forEach(function (element, index) {
-        element.style.transition = "none";
-        element.style.opacity = "0";
-        element.style.transform = "translateY(20px)";
-      });
-    }
-  }
-
-  handleScroll(); // Run once to initialize elements visibility
-
-  window.addEventListener("scroll", handleScroll);
-
-  // Exemplo de como alterar a customAnimationDelay (apenas para fins de demonstração)
-  setTimeout(function () {
-    customAnimationDelay = 1500; // Alterando o valor para 1.5 segundos após 2 segundos
-  }, 2000);
 });

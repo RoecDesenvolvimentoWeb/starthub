@@ -546,6 +546,18 @@ header .button_contact {
   top: 65%;
   right: 30%;
 }
+.dot.dot3 {
+  top: 63%;
+  right: 27%;
+}
+.dot.dot4 {
+  top: 63%;
+  right: 33%;
+}
+.dot.dot5 {
+  top: 60%;
+  right: 30%;
+}
 .section_g {
   background-color: #000;
   padding: 150px 0;
@@ -692,4 +704,14 @@ header .button_contact {
 
 .card.fade-in {
   opacity: 1;
+}
+.section_e .container > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section_e .container > *.show {
+  opacity: 1;
+  transform: translateY(0);
 }
