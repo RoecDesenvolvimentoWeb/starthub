@@ -398,6 +398,15 @@ header .button_contact {
   max-width: fit-content;
   display: block;
 }
+.section_d .container > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.section_d .container > *.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .section_e {
   background-image: url("../images/bgsolid2.png");
   background-size: cover;
@@ -423,9 +432,12 @@ header .button_contact {
   align-items: center;
   justify-content: center;
 }
+.pic_name img {
+  max-width: 300px;
+}
 .about_ceo {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   margin-top: 70px;
   gap: 40px;

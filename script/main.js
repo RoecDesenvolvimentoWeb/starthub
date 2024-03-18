@@ -267,3 +267,113 @@ sectionD.addEventListener("mousemove", function (event) {
 
   sectionD.style.backgroundPosition = `${100 + offsetY}% ${190 + offsetY}%`;
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const animationDelayCustom = 500; // 1 segundo
+  const animationDurationCustom = 500; // 0.5 segundo
+  const screenHeightCustom = window.innerHeight;
+  const triggerPointCustom = 0.1 * screenHeightCustom;
+
+  const elements = document.querySelectorAll(".section_d .container > *");
+
+  function isInViewport(element) {
+    const bounding = element.getBoundingClientRect();
+    return (
+      bounding.top + triggerPointCustom <= screenHeightCustom &&
+      bounding.bottom >= triggerPointCustom
+    );
+  }
+
+  function handleScroll() {
+    elements.forEach(function (element, index) {
+      if (isInViewport(element)) {
+        element.style.setProperty(
+          "--animation-duration",
+          `${animationDurationCustom / 1000}s`
+        );
+        setTimeout(function () {
+          element.classList.add("show");
+        }, animationDelayCustom);
+      } else {
+        element.classList.remove("show");
+      }
+    });
+  }
+
+  handleScroll(); // Run once to initialize elements visibility
+
+  window.addEventListener("scroll", handleScroll);
+});
+
+// MAP MAP MAP MAP MAP
+const animationDelayDots = 1000; // 1 segundo
+const animationDurationDots = 500; // 0.5 segundo
+
+const dots = document.querySelectorAll(".dot");
+
+window.addEventListener("scroll", function () {
+  const screenHeight = window.innerHeight;
+  const triggerPoint = 0.1 * screenHeight;
+
+  dots.forEach((dot, index) => {
+    const dotPositionFromTop = dot.getBoundingClientRect().top;
+
+    if (dotPositionFromTop - screenHeight + triggerPoint <= 0) {
+      setTimeout(function () {
+        dot.style.transitionDuration = `${animationDurationDots}ms`;
+        dot.style.opacity = 1; // Animar o dot para aparecer
+      }, animationDelayDots * (index + 1)); // Adiciona um atraso proporcional ao índice
+    } else {
+      dot.style.transitionDuration = `${animationDurationDots}ms`;
+      dot.style.opacity = 0; // Oculta o dot
+    }
+  });
+});
+
+// SECTION E
+document.addEventListener("DOMContentLoaded", function () {
+  let customAnimationDelay = 1000; // 1 segundo (valor inicial)
+  const customAnimationDuration = 1000; // 0.5 segundo
+  const customScreenHeight = window.innerHeight;
+  const customTriggerPoint = 0.1 * customScreenHeight;
+
+  const container = document.querySelector(".section_e .container");
+  const elements = container.querySelectorAll("*");
+
+  function isInViewport(element) {
+    const bounding = element.getBoundingClientRect();
+    return (
+      bounding.top + customTriggerPoint <= customScreenHeight &&
+      bounding.bottom >= customTriggerPoint
+    );
+  }
+
+  function handleScroll() {
+    if (isInViewport(container)) {
+      elements.forEach(function (element, index) {
+        element.style.transition = `opacity ${
+          customAnimationDuration / 1000
+        }s ease, transform ${customAnimationDuration / 1000}s ease`;
+        setTimeout(function () {
+          element.style.opacity = "1";
+          element.style.transform = "translateY(0)";
+        }, customAnimationDelay);
+      });
+    } else {
+      elements.forEach(function (element, index) {
+        element.style.transition = "none";
+        element.style.opacity = "0";
+        element.style.transform = "translateY(20px)";
+      });
+    }
+  }
+
+  handleScroll(); // Run once to initialize elements visibility
+
+  window.addEventListener("scroll", handleScroll);
+
+  // Exemplo de como alterar a customAnimationDelay (apenas para fins de demonstração)
+  setTimeout(function () {
+    customAnimationDelay = 1500; // Alterando o valor para 1.5 segundos após 2 segundos
+  }, 2000);
+});
