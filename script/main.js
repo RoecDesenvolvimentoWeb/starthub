@@ -357,3 +357,46 @@ window.addEventListener("scroll", function () {
     }
   });
 });
+
+const typingTextElement = document.getElementById("typingText");
+const words = ["clientes", "parceiros"];
+let currentWordIndex = 0;
+
+function typeWord(word) {
+  return new Promise((resolve) => {
+    let i = 0;
+    const typingInterval = setInterval(function () {
+      typingTextElement.textContent += word[i];
+      i++;
+      if (i >= word.length) {
+        clearInterval(typingInterval);
+        setTimeout(resolve, 1000);
+      }
+    }, 100);
+  });
+}
+
+async function typeLoop() {
+  while (true) {
+    await typeWord(words[currentWordIndex]);
+    currentWordIndex = (currentWordIndex + 1) % words.length;
+    await eraseWord();
+  }
+}
+
+async function eraseWord() {
+  return new Promise((resolve) => {
+    const text = typingTextElement.textContent;
+    let i = text.length;
+    const eraseInterval = setInterval(function () {
+      typingTextElement.textContent = text.substring(0, i);
+      i--;
+      if (i < 0) {
+        clearInterval(eraseInterval);
+        resolve();
+      }
+    }, 50);
+  });
+}
+
+typeLoop(); // Start typing loop
