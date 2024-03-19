@@ -399,4 +399,85 @@ async function eraseWord() {
   });
 }
 
-typeLoop(); // Start typing loop
+typeLoop();
+
+const typedTextElement = document.getElementById("typedText");
+const words2 = ["START", "INÍCIO"];
+let currentWordIndex2 = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+
+function type() {
+  const currentWord = words2[currentWordIndex2];
+  if (!isDeleting) {
+    typedTextElement.innerHTML = currentWord.substring(0, currentCharIndex);
+    currentCharIndex++;
+  } else {
+    typedTextElement.innerHTML = currentWord.substring(0, currentCharIndex);
+    currentCharIndex--;
+  }
+
+  if (currentCharIndex === currentWord.length + 1) {
+    isDeleting = true;
+    setTimeout(type, 500);
+  } else if (currentCharIndex === -1) {
+    isDeleting = false;
+    currentWordIndex2 = (currentWordIndex2 + 1) % words.length;
+    setTimeout(type, 500);
+  } else {
+    setTimeout(type, 100);
+  }
+}
+
+function initializeTypingAnimation() {
+  type();
+  setInterval(function () {
+    const cursorElement = document.createElement("span");
+    cursorElement.classList.add("typing-cursor");
+    typedTextElement.appendChild(cursorElement);
+  }, 800);
+}
+
+initializeTypingAnimation();
+
+// FORM
+let currentStep = 1;
+const form = document.getElementById("form-etapas");
+const progressBar = document.querySelector(".progress-bar");
+
+function showStep(stepNumber) {
+  const steps = document.querySelectorAll(".form-step");
+  steps.forEach((step) => {
+    step.style.display = "none";
+  });
+  document.getElementById(`step-${stepNumber}`).style.display = "flex";
+  currentStep = stepNumber;
+}
+
+function nextStep() {
+  if (currentStep < 4) {
+    currentStep++;
+    showStep(currentStep);
+  }
+  updateProgressBar();
+}
+
+function prevStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    showStep(currentStep);
+  }
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  const percent = ((currentStep - 1) / 3) * 100; // 3 é o número total de etapas
+  progressBar.style.width = percent + "%";
+}
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  alert("Formulário enviado com sucesso!");
+});
+
+showStep(currentStep);

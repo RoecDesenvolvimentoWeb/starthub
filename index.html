@@ -7,7 +7,7 @@
     <title>StartHub</title>
   </head>
   <body>
-    <div class="loading">
+    <!-- <div class="loading">
       <div class="logo_animation">
         <div class="name_logo">
           <img src="./images/logo-name.svg" alt="" />
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="background"></div>
-    </div>
+    </div> -->
     <header>
       <div class="container">
         <div class="logo"><img src="./images/logo.svg" alt="" /></div>
@@ -58,7 +58,7 @@
         <div class="text_area">
           <p class="top_text">AGÊNCIA DE <strong>MARKETING</strong></p>
           <h1 class="title_text">
-            Seu <strong>START</strong> digital<br />
+            Seu <strong id="typedText"></strong> digital<br />
             começa aqui
           </h1>
           <a href="" class="button">
@@ -161,16 +161,17 @@
               <img src="./images/card-6.svg" alt="" />
               <p class="title_card">Consultoria Empresarial</p>
               <p class="content_card">
-                Alcance o próximo nível com nossa consultoria empresarial
-                personalizada para o seu segmento.
+                class="next-step" class="next-step" Alcance o próximo nível com
+                nossa consultoria empresarial personalizada para o seu segmento.
               </p>
             </div>
             <div class="card">
               <img src="./images/card-5.svg" alt="" />
-              <p class="title_card">Consultoria Individual</p>
+              <p class="title_card">Tráfego Pago</p>
               <p class="content_card">
-                Alcance seus objetivos pessoais com nossa consultoria
-                individual, lhe damos o caminho certo.
+                Aumente sua visibilidade na web e impulsione seus resultados com
+                nosso serviço especializado em tráfego pago! Seja visto pelos
+                clientes certos, na hora certa e nos lugares certos.
               </p>
             </div>
           </div>
@@ -342,50 +343,172 @@
     </div>
     <div class="section_g">
       <div class="container">
-        <div class="comp">
-          <img src="./images/comp.png" alt="" />
-        </div>
-        <div class="main_content">
-          <h1>Solicite uma <strong>consulta</strong></h1>
-          <p>
-            Se interessou ou teve alguma dúvida sobre nossos serviços? Faça uma
-            consulta com a gente.
+        <div class="content_wrapper">
+          <p class="content_tittle">
+            Entre em contato com<br />
+            a equipe da <strong>STARTHUB</strong>
           </p>
-          <div class="main_content_2">
-            <div class="text">
-              <p class="title">Opções</p>
-              <p>
-                Selecione uma<br />
-                das opções
-              </p>
-            </div>
-            <div class="cards_contact">
-              <div class="wpp_card">
-                <p>Consulta por <br />Whatsapp</p>
-              </div>
-              <div class="email_card">
-                <p>Consulta por <br />E-mail</p>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="click"><img src="./images/click.png" alt="" /></div>
+        <form id="form-etapas">
+          <div class="progress-bar"></div>
+          <p class="form-step-title">
+            Preencha o formulário para marcar uma reunião.
+          </p>
+          <div class="form-step" id="step-1">
+            <label for="nome">Nome</label>
+            <input
+              placeholder="Digite o seu nome completo"
+              type="text"
+              id="nome"
+              required
+            />
+            <button type="button" class="next-step" onclick="nextStep()">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L11.2929 11.2929C11.6834 11.6834 12.3166 11.6834 12.7071 11.2929L23 1"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="form-step" id="step-2">
+            <label for="whatsapp">Número de WhatsApp:</label>
+            <input type="tel" id="whatsapp" required />
+            <button type="button" class="back-step" onclick="prevStep()">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23 12L12.7071 1.70711C12.3166 1.31658 11.6834 1.31658 11.2929 1.70711L0.999999 12"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <button type="button" class="next-step" onclick="nextStep()">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L11.2929 11.2929C11.6834 11.6834 12.3166 11.6834 12.7071 11.2929L23 1"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="form-step" id="step-3">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required />
+            <button type="button" class="back-step" onclick="prevStep()">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23 12L12.7071 1.70711C12.3166 1.31658 11.6834 1.31658 11.2929 1.70711L0.999999 12"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <button type="button" class="next-step" onclick="nextStep()">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L11.2929 11.2929C11.6834 11.6834 12.3166 11.6834 12.7071 11.2929L23 1"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="form-step" id="step-4">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" required></textarea>
+            <button type="button" class="back-step" onclick="prevStep()">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23 12L12.7071 1.70711C12.3166 1.31658 11.6834 1.31658 11.2929 1.70711L0.999999 12"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <button type="submit" class="next-step">
+              <svg
+                width="24"
+                height="13"
+                viewBox="0 0 24 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L11.2929 11.2929C11.6834 11.6834 12.3166 11.6834 12.7071 11.2929L23 1"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
     <footer class="footer1">
       <div class="container">
         <h1>STARTHUB</h1>
         <p>
-          The best design for your web studio website. Vitae nulla nunc euismod
-          vel pretium tellus accumsan semper. Vitae nulla nunc euismod vel
-          pretium tellus accumsan semper.
+          Conectando marcas ao sucesso através de estratégias criativas. Faça
+          parte da revolução digital e transforme sua presença online em
+          conexões reais!
         </p>
       </div>
     </footer>
     <footer class="footer2">
       <div class="container">
-        <p>© 2019-2020 All Rights Reserved.</p>
-        <a>Terms of Service</a>
+        <p>
+          © 2019-2020 All Rights Reserved.Copyright © 2024 StartHub (CNPJ:
+          50.994.133/0001-07) | Todos os direitos reservados.
+        </p>
       </div>
     </footer>
     <footer class="footer3">
