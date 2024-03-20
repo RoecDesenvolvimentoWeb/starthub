@@ -964,13 +964,14 @@ textarea#mensagem {
   }
   .text_area {
     align-items: center;
-    margin-bottom: 40px;
+    margin: 0 !important;
   }
   .text_area h1 {
     text-align: center;
   }
   .slider {
     width: 100%;
+    margin-top: 80px;
   }
   .button_contact,
   nav {
@@ -1029,6 +1030,7 @@ textarea#mensagem {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    gap: 40px;
   }
   .map {
     position: relative;
@@ -1052,5 +1054,19 @@ textarea#mensagem {
   }
   .section_f_title_2 {
     font-size: 32px !important;
+  }
+}
+@media (max-width: 768px) {
+  .slider {
+    flex-direction: column;
+  }
+  .section_b {
+    background-image: initial !important;
+  }
+  .section_f_title_2 {
+    font-size: 22px !important;
+  }
+  .bubble {
+    display: none;
   }
 }
