@@ -218,7 +218,7 @@ sectionB.addEventListener("mousemove", function (event) {
 // SECTION C
 const animationDelayC = 1000; // 1 segundo
 const animationDurationC = 500; // 0.5 segundo
-const fadeInDuration = 500; // Duração do fade-in da div .galery_wrapper
+const fadeInDuration = 500; // Duração do fade-in da div .gallery_wrapper
 const delayAfterTitleAnimation = 100; // 1 segundo de atraso após a animação do título
 
 window.addEventListener("scroll", function () {
@@ -232,10 +232,10 @@ window.addEventListener("scroll", function () {
       titleElementC.style.transitionDuration = `${animationDurationC}ms`;
       animateSlide(titleElementC, 0); // Animar título para dentro
       setTimeout(function () {
-        // Seleciona a div .galery_wrapper
-        const galeryWrapper = document.querySelector(".galery_wrapper");
+        // Seleciona a div .gallery_wrapper
+        const galeryWrapper = document.querySelector(".gallery_wrapper");
 
-        // Define a transição para a div .galery_wrapper
+        // Define a transição para a div .gallery_wrapper
         galeryWrapper.style.transition = `opacity ${fadeInDuration}ms`;
         galeryWrapper.style.opacity = 1;
       }, delayAfterTitleAnimation);
@@ -251,9 +251,9 @@ function animateSlide(element, offsetX) {
   element.style.transform = `translateX(${offsetX}%)`; // Usar offsetX para definir a posição
 }
 
-// Inicializa a div .galery_wrapper com opacidade 0
+// Inicializa a div .gallery_wrapper com opacidade 0
 document.addEventListener("DOMContentLoaded", function () {
-  const galeryWrapper = document.querySelector(".galery_wrapper");
+  const galeryWrapper = document.querySelector(".gallery_wrapper");
   galeryWrapper.style.opacity = 0;
 });
 
@@ -481,3 +481,28 @@ form.addEventListener("submit", function (event) {
 });
 
 showStep(currentStep);
+
+const prevButton = document.getElementById("prevBtn");
+const nextButton = document.getElementById("nextBtn");
+const galleryItems = document.querySelectorAll(".gallery_items");
+
+let currentIndex = 0;
+
+// Adiciona a classe 'active' ao primeiro conjunto de imagens
+galleryItems[currentIndex].classList.add("active");
+
+prevButton.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    galleryItems[currentIndex].classList.remove("active");
+    currentIndex--;
+    galleryItems[currentIndex].classList.add("active");
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  if (currentIndex < galleryItems.length - 1) {
+    galleryItems[currentIndex].classList.remove("active");
+    currentIndex++;
+    galleryItems[currentIndex].classList.add("active");
+  }
+});
