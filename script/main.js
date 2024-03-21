@@ -506,3 +506,35 @@ nextButton.addEventListener("click", () => {
     galleryItems[currentIndex].classList.add("active");
   }
 });
+const buttonMenu = document.querySelector(".button_menu");
+const menuMob = document.querySelector(".menu_mob");
+const menuLinks = document.querySelectorAll(".menu_mob a");
+
+let menuOpen = false;
+
+// Função para fechar o menu
+function closeMenu() {
+  menuMob.classList.remove("active");
+  buttonMenu.classList.remove("active");
+  menuOpen = false;
+}
+
+buttonMenu.addEventListener("click", function () {
+  if (!menuOpen) {
+    // Adiciona classe para ativar o menu e alterar a opacidade
+    menuMob.classList.add("active");
+    buttonMenu.classList.add("active");
+    menuOpen = true;
+  } else {
+    // Fecha o menu
+    closeMenu();
+  }
+});
+
+// Adiciona event listener para cada link dentro do menu
+menuLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    // Fecha o menu quando um link é clicado
+    closeMenu();
+  });
+});
